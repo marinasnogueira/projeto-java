@@ -1,8 +1,14 @@
 # For Java 8
- FROM openjdk:8-jdk-alpine
+FROM openjdk:8-jdk-alpine
  
  
- ARG JAR_FILE=target/projeto-java.jar
+ARG JAR_FILE=target/projeto-java.jar
 
-# cp projeto-java.jar /opt/app/app.jar
+WORKDIR /opt/app
+
+
 COPY ${JAR_FILE} app.jar
+
+
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
