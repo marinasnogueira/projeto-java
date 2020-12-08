@@ -1,4 +1,4 @@
-package loja.varejo.config;
+package loja.varejo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
