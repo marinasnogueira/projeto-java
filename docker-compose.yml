@@ -1,0 +1,19 @@
+version: "3.8"
+
+networks:
+  default:
+    external:
+      name: backend
+services:
+  lojadb:
+    image: mongo:latest
+    container_name: lojadb
+    ports:
+      - 27017:27017
+  movie-app-image:
+    image: loja-varejo-image
+    container_name: loja-varejo-image
+    ports:
+      - 8080:8080
+    links:
+      - lojadb

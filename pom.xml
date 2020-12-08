@@ -48,6 +48,10 @@
 				<configuration>
 					<source>8</source>
 					<target>8</target>
+					<configuration>
+							<mainClass>loja.varejo.LojaVarejoApplication</mainClass>
+							<outputDirectory>${project.basedir}/target</outputDirectory>
+						</configuration>
 				</configuration>
 			</plugin>
 		</plugins>
