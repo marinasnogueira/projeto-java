@@ -5,15 +5,15 @@ networks:
     external:
       name: backend
 services:
-  lojadb:
+  loja-varejo-db:
     image: mongo:latest
-    container_name: lojadb
+    container_name: loja-varejo-db
     ports:
       - 27017:27017
-  movie-app-image:
+  loja-app-image:
     image: loja-varejo-image
     container_name: loja-varejo-image
     ports:
       - 8080:8080
     links:
-      - lojadb
+      - loja-varejo-db
