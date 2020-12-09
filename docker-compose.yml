@@ -1,19 +1,14 @@
-version: "3.8"
-
-networks:
-  default:
-    external:
-      name: backend
+version: "3"
 services:
-  loja-varejo-db:
-    image: mongo:latest
-    container_name: loja-varejo-db
+  mongodb:
+    image: mongo:3.2.4
+    container_name: "mongodb"
     ports:
-      - 27017:27017
-  loja-app-image:
+    - 27017:27017
+    command: --smallfiles
+  app:
     image: loja-varejo-image
-    container_name: loja-varejo-image
     ports:
-      - 8080:8080
+    - 8080:8080
     links:
-      - loja-varejo-db
+    - mongodb
