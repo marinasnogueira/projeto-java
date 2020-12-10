@@ -3,33 +3,26 @@ package loja.varejo.model;
 import java.util.Date;
 import java.util.List;
 
-import org.bson.codecs.pojo.annotations.BsonProperty;
-import org.bson.types.ObjectId;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "clientes")
 public class Cliente {
 	
-	private ObjectId id;
-	
-	@BsonProperty(value = "nomeCompleto")
+	private String id;
 	private String nomeCompleto;
-	@BsonProperty(value = "dataNascimento")
 	private Date dataNascimento;
-	@BsonProperty(value = "email")
 	private String email;
-	@BsonProperty(value = "cpf")
 	private String cpf;
-	@BsonProperty(value = "sexo")
 	private char sexo;
-	@BsonProperty(value = "tipoPessoa")
 	private String tipoPessoa;
 	private List<Endereco> enderecos;
 	private List<Telefone> telefones;
 	
 	
-	public ObjectId getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(ObjectId id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getNomeCompleto() {
@@ -79,10 +72,6 @@ public class Cliente {
 	}
 	public void setTelefones(List<Telefone> telefones) {
 		this.telefones = telefones;
-	}
-	public Object criaId() {
-		setId(new ObjectId());
-		return this;
 	}
 	
 }

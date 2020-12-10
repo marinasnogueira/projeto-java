@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+
 @ComponentScan({"loja.varejo.controller", "loja.varejo.service"})
 public class LojaVarejoApplication {
 

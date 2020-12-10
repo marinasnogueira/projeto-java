@@ -9,20 +9,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import loja.varejo.model.Cliente;
-import loja.varejo.service.ClienteService;
+import loja.varejo.model.Produto;
+import loja.varejo.service.ProdutoService;
 
 @Controller
-@RequestMapping("/clientes")
-public class ClienteController {
+@RequestMapping("/produtos")
+public class ProdutoController {
 
 	@Autowired
-	ClienteService clienteservice;
+	ProdutoService produtoService;
 
 	@GetMapping("/listar")
-	public ResponseEntity<List<Cliente>> listarClientes(String chave, String valor) {
+	public ResponseEntity<List<Produto>> listarClientes(String chave, String valor) {
 
-		return new ResponseEntity<>(clienteservice.findAll(), HttpStatus.OK);
+		return new ResponseEntity<>(produtoService.findAll(), HttpStatus.OK);
 
 	}
+
 }

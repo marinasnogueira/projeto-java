@@ -1,14 +1,26 @@
-version: "3"
+version: '3.1'
+
 services:
-  mongodb:
-    image: mongo:3.2.4
-    container_name: "mongodb"
-    ports:
-    - 27017:27017
-    command: --smallfiles
-  app:
+  loja-varejo:
+    build: .
     image: loja-varejo-image
+    restart: always
+    container_name: loja-varejo-container
     ports:
-    - 8080:8080
-    links:
-    - mongodb
+      - 8080:8080
+    working_dir: /opt/app
+    depends_on:
+      - mongo
+  
+  mongo:
+    image: mongo
+    container_name: mongodb-container
+    volumes:
+      - $HOME/Marina/Dev/workspaces/loja/projeto-mongodb:/data/db
+      - $HOME/Marina/Dev/workspaces/loja/projeto-mongodb:/data/bkp
+    restart: always
+    
+    environment:
+       SPRING_DATA_MONGODB_URI: mongodb://127.0.0.1:27018/test
+    
+
